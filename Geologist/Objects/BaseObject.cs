@@ -3,12 +3,19 @@ using System.Drawing;
 
 namespace Geologist.Objects
 {
+    /// <summary>
+    /// Базовый класс объектов
+    /// </summary>
     class BaseObject
     {
+        #region Fields
         protected Point Pos;//{ get; set; }
         protected Point Dir;//{ get; set; }
         protected Size Size;//{ get; set; }
+        #endregion
 
+
+        #region ClassLifeCycles
         public BaseObject()
         {
             Pos = new Point(0, 0);
@@ -21,7 +28,10 @@ namespace Geologist.Objects
             this.Dir = dir;
             this.Size = size;
         }
+        #endregion
 
+
+        #region Methods
         public virtual void Draw()
         {
             Game.Buffer.Graphics.DrawEllipse(Pens.White, Pos.X, Pos.Y, Size.Width, Size.Height);
@@ -37,7 +47,7 @@ namespace Geologist.Objects
             if (Pos.Y < 0) Dir.Y = -Dir.Y;
             if (Pos.Y > Game.Height) Dir.Y = -Dir.Y;
         }
-
+        #endregion
     }
 }
 
