@@ -9,8 +9,17 @@ namespace Geologist.Objects
     class BaseObject
     {
         #region Fields
+        /// <summary>
+        /// Позиция
+        /// </summary>
         protected Point Pos;//{ get; set; }
+        /// <summary>
+        /// Напарвление
+        /// </summary>
         protected Point Dir;//{ get; set; }
+        /// <summary>
+        /// Размер
+        /// </summary>
         protected Size Size;//{ get; set; }
         #endregion
 

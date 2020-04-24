@@ -1,7 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using Geologist.Objects;
+using System;
 using System.Drawing;
-using Geologist.Objects;
+using System.Windows.Forms;
+using System.Collections.Generic;
+
 
 namespace Geologist
 {
@@ -11,13 +13,16 @@ namespace Geologist
     static class Game
     {
         #region Fields
-        static public Random Random { get; } = new Random();
         static public Image background = Image.FromFile("Images\\mine.jpg");
-        static BaseObject[] objs = new BaseObject[50];
-        static Timer timer = new Timer();
-
+        static BaseObject hero = new BaseObject();
+        static BaseObject[] objs = new BaseObject[20];
         static BufferedGraphicsContext context;
+        static List<BaseObject> objsList = new List<BaseObject>(); //спсиок всех объектов для Draw и Update
+        
         static public BufferedGraphics Buffer { get; private set; }
+        static Timer timer = new Timer();
+        static public Random Random { get; } = new Random();
+
         #endregion
 
 
@@ -43,6 +48,7 @@ namespace Geologist
         #region Methods
         static public void Init(Form form)
         {
+            
             // Графическое устройство для вывода графики
             Graphics g;
             // предоставляет доступ к главному буферу графического контекста для текущего приложения
@@ -64,21 +70,30 @@ namespace Geologist
             Draw();
         }
 
+        // Пока плохо разобрался как учитывать размер изображения объекта что бы он не появлялся на краю формы
         static public void Load()
         {
-            for (int i = 0; i < objs.Length / 2; i++)
-                objs[i] = new BaseObject(new Point(i * 3, i * 3), new Point(i, i), new Size(20, 20));
+            // и несколько разных объектов кристаллы и порода
+            //for (int i = 0; i < objs.Length / 2; i++)
+            //    objs[i] = new BaseObject(new Point(i * 3, i * 3), new Point(i, i), new Size(20, 20));
             for (int i = objs.Length / 2; i < objs.Length; i++)
-                objs[i] = new Crystal(new Point(i * 3, i * 3), new Point(i, i), new Size(20, 20));
+                objs[i] = new Crystal(new Point(0, Random.Next(Height)), new Point(15, Random.Next(Height)-20), new Size(20, 20));
+            for (int i = 0; i < objs.Length / 2; i++)
+                objs[i] = new Rock(new Point(0, Random.Next(Height)), new Point(15, Random.Next(Height) - 20), new Size(20, 20));
+            
+            //Позже сделать реагирование на нажатие клавиш и анимацию
+            hero = new Hero(new Point(150, 150), new Point(150, 100), new Size(80, 100));
         }
 
 
         static public void Draw()
         {
             // Проверяем вывод графики
-            Buffer.Graphics.DrawImage(background, new Rectangle(0, 0, Width, Height)); //Как сделать авто изменение размеров фона с размером окна
+            Buffer.Graphics.DrawImage(background, new Rectangle(0, 0, Width, Height)); //Как сделать авто изменение размеров фона с размером окна?
             foreach (BaseObject obj in objs)
                 obj.Draw();
+            hero.Draw();
+
             Buffer.Render();
         }
 
@@ -86,6 +101,7 @@ namespace Geologist
         {
             foreach (BaseObject obj in objs)
                 obj.Update();
+            hero.Update();
         }
         #endregion
 

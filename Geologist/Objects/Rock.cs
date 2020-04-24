@@ -4,17 +4,18 @@ using System.Drawing;
 namespace Geologist.Objects
 {
     /// <summary>
-    /// Объект кристаллы
+    /// Объект горные породы
     /// </summary>
-    class Crystal : BaseObject
+    class Rock : BaseObject
     {
+        //Па задумке от горных пород надо будет уворачиваться или сбивать их молотком
         #region Fields
-        static Image Image { get; } = Image.FromFile("Images\\crystal.png");
+        static Image Image { get; } = Image.FromFile("Images\\rock.png");
         #endregion
 
 
         #region ClassLifeCycles
-        public Crystal(Point pos, Point dir, Size size) : base(pos, dir, size)
+        public Rock(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
 
         }
@@ -24,7 +25,7 @@ namespace Geologist.Objects
         #region Methods
         public override void Draw()
         {
-            Game.Buffer.Graphics.DrawImage(Image, Pos.X, Pos.Y, 80, 80);
+            Game.Buffer.Graphics.DrawImage(Image, Pos.X, Pos.Y, 80, 60);
         }
 
         public override void Update()
