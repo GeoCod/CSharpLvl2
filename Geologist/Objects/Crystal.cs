@@ -24,7 +24,7 @@ namespace Geologist.Objects
         #region Methods
         public override void Draw()
         {
-            Game.Buffer.Graphics.DrawImage(Image, Pos.X, Pos.Y, 80, 80);
+            Game.Buffer.Graphics.DrawImage(Image, Pos.X, Pos.Y, 70, 70);
         }
 
         public override void Update()
@@ -32,8 +32,8 @@ namespace Geologist.Objects
             Pos.X -= Dir.X;
             if (Pos.X < 0)
             {
-                Pos.X = Game.Random.Next(Game.Width + 20, Game.Width + Game.Width);
-                Pos.Y = Game.Random.Next(Game.Height);
+                Pos.X = Game.Random.Next(Game.Width, Game.Width + Game.Width);
+                Pos.Y = Game.Random.Next(Game.Height - 70);
             }
         }
         #endregion

@@ -7,6 +7,8 @@ namespace Geologist
         static void Main()
         {
             Form form = new Form();
+            form.Text = "Приключения геолога";
+            form.Icon = new System.Drawing.Icon("icon.ico");
             form.Width = 1024;
             form.Height = 768;
             //form.KeyDown += Form_KeyDown;     // Похоже обработку нажатий нужно делать в объектах...

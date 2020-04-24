@@ -31,9 +31,9 @@ namespace Geologist.Objects
         {
             //Pos.X -= Dir.X;
             //if (Pos.X < 0) Pos.X = Game.Width + 50;
-
-            Pos.X += Dir.X;
-            if (Pos.X > 0) Pos.X = 50;
+            
+            Pos.Y += Dir.Y;
+            if (Pos.Y < 0) Pos.Y = Game.Height;
         }
 
         // Сделать обработку нажатий клавиш

@@ -15,7 +15,7 @@ namespace Geologist
         #region Fields
         static public Image background = Image.FromFile("Images\\mine.jpg");
         static BaseObject hero = new BaseObject();
-        static BaseObject[] objs = new BaseObject[20];
+        static BaseObject[] objs = new BaseObject[30];
         static BufferedGraphicsContext context;
         static List<BaseObject> objsList = new List<BaseObject>(); //спсиок всех объектов для Draw и Update
         
@@ -33,6 +33,7 @@ namespace Geologist
         }
         #endregion
 
+
         #region Properties
         /// <summary>
         /// Ширина игрового поля
@@ -48,7 +49,6 @@ namespace Geologist
         #region Methods
         static public void Init(Form form)
         {
-            
             // Графическое устройство для вывода графики
             Graphics g;
             // предоставляет доступ к главному буферу графического контекста для текущего приложения
@@ -77,12 +77,13 @@ namespace Geologist
             //for (int i = 0; i < objs.Length / 2; i++)
             //    objs[i] = new BaseObject(new Point(i * 3, i * 3), new Point(i, i), new Size(20, 20));
             for (int i = objs.Length / 2; i < objs.Length; i++)
-                objs[i] = new Crystal(new Point(0, Random.Next(Height)), new Point(15, Random.Next(Height)-20), new Size(20, 20));
+                objs[i] = new Crystal(new Point(Random.Next(Width, Width*2), Random.Next(Height)-15), new Point(Random.Next(5, 20)), new Size(15, 15));
             for (int i = 0; i < objs.Length / 2; i++)
-                objs[i] = new Rock(new Point(0, Random.Next(Height)), new Point(15, Random.Next(Height) - 20), new Size(20, 20));
+                objs[i] = new Rock(new Point(Random.Next(Width, Width * 2), Random.Next(Height)-15), new Point(Random.Next(5, 35)), new Size(15, 15));
+                //objs[i] = new Rock(new Point(0, Random.Next(Height)-15), new Point(Random.Next(5, 35), Random.Next(Height)), new Size(15, 15));
             
             //Позже сделать реагирование на нажатие клавиш и анимацию
-            hero = new Hero(new Point(150, 150), new Point(150, 100), new Size(80, 100));
+            hero = new Hero(new Point(5, 50), new Point(0, -10), new Size(80, 100));
         }
 
 
