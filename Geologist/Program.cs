@@ -4,6 +4,8 @@ namespace Geologist
 {
     class Program
     {
+        // Артем  Васильченко
+        // альтернативные "Астероиды" (^=^)
         static void Main()
         {
             Form form = new Form();
