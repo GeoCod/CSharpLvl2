@@ -1,6 +1,5 @@
 ﻿using Geologist.Objects;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -14,14 +13,19 @@ namespace Geologist
     {
         #region Fields
         static public Image background = Image.FromFile("Images\\mine.jpg");
-        static Hero hero;
+        public static Hero hero;// { get; private set; }
+        public static Hammer hammer;// { get; private set; }
         static Crystal[] crystals = new Crystal[15];
         static Rock[] rocks = new Rock[20];
+        static public int score = 0;
+        static public int armor = 100;
+
         //static List<BaseObject> objsList = new List<BaseObject>(); //спсиок всех объектов для Draw и Update
         static public BufferedGraphics Buffer { get; private set; }
         static BufferedGraphicsContext context;
         static Timer timer = new Timer();
         static public Random Random { get; } = new Random();
+
         #endregion
 
 
@@ -73,7 +77,11 @@ namespace Geologist
 
         private static void Form_KeyDown(object sender, KeyEventArgs e)
         {
-            hero.Move(e);
+            if (e.KeyCode == Keys.Space)
+            {
+                hammer = new Hammer(new Point(hero.Rect.X + hero.Width, hero.Rect.Y + hero.Width / 2));
+            }
+            else hero.Move(e);
         }
 
         //static private void GetSizeForm()
@@ -111,15 +119,95 @@ namespace Geologist
             foreach (Crystal crys in crystals) crys.Draw();
             foreach (Rock rock in rocks) rock.Draw();
             hero.Draw();
-
+            hammer?.Draw();
+            DrawScore();
+            DrawArmor();
             Buffer.Render();
         }
 
         static public void Update()
         {
-            foreach (Crystal crys in crystals) crys.Update();
-            foreach (Rock rock in rocks) rock.Update();
+            for (int i = 0; i < crystals.Length; i++)
+            {
+                crystals[i].Update();
+                if (crystals[i].Collision(hero))
+                {
+                    crystals[i] = new Crystal();
+                    score++;
+                }
+            }
+            for (int i = 0; i < rocks.Length; i++)
+            {
+                rocks[i].Update();
+                if (rocks[i].Collision(hero))
+                {
+                    rocks[i] = new Rock();
+                    armor--;
+                    score--;
+                }
+
+                if (hammer != null)
+                {
+                    if (rocks[i].Collision(hammer))
+                    {
+                        rocks[i] = new Rock();
+                        hammer = null;
+                        score++;
+                    }
+                    else hammer.Update();
+                }
+            }
+
+            #region Вариант через foreach
+            //foreach (Crystal crys in crystals)
+            //{
+            //    crys?.Update();
+            //    if (crys.Collision(hero))
+            //    {
+            //        score++;
+            //        //пееррисовать объект
+            //    }
+            //}
+            //foreach (Rock rock in rocks)
+            //{
+            //    rock?.Update();
+            //    if (rock.Collision(hero)) score--;
+            //    if (hammer != null)
+            //    {
+            //        if (rock.Collision(hammer))
+            //        {
+            //            score++;
+            //            //пееррисовать объект
+            //        }
+            //        hammer.Update();
+            //    }
+            //}
+            #endregion
+
             hero.Update();
+
+        }
+
+        public static void DrawScore()
+        {
+            string drawString = $"Зарплата: {score}";
+            Font drawFont = new Font("Arial", 16);
+            SolidBrush drawBrush = new SolidBrush(Color.Green);
+            float x = 20;
+            float y = 4;
+            StringFormat drawFormat = new StringFormat();
+            Buffer.Graphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
+        }
+
+        public static void DrawArmor()
+        {
+            string drawString = $"Здоровье: {armor}";
+            Font drawFont = new Font("Arial", 16);
+            SolidBrush drawBrush = new SolidBrush(Color.Aqua);
+            float x = 20;
+            float y = 30;
+            StringFormat drawFormat = new StringFormat();
+            Buffer.Graphics.DrawString(drawString, drawFont, drawBrush, x, y, drawFormat);
         }
         #endregion
 

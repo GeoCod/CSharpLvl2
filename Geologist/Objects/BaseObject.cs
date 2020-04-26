@@ -1,12 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Geologist.Objects
 {
     /// <summary>
     /// Базовый класс объектов
     /// </summary>
-    class BaseObject
+    abstract class BaseObject : ICollision
     {
         #region Fields
         /// <summary>
@@ -25,13 +24,13 @@ namespace Geologist.Objects
 
 
         #region ClassLifeCycles
-        public BaseObject()
+        protected BaseObject()
         {
             Pos = new Point(0, 0);
             Dir = new Point(0, 0);
             Size = new Size(0, 0);
         }
-        public BaseObject(Point pos, Point dir, Size size)
+        protected BaseObject(Point pos, Point dir, Size size)
         {
             this.Pos = pos;
             this.Dir = dir;
@@ -41,9 +40,25 @@ namespace Geologist.Objects
 
 
         #region Methods
-        public virtual void Draw() {}
+        public abstract void Draw();
 
-        public virtual void Update() {}
+        public abstract void Update();
+
+        //public Rectangle Rect => new Rectangle(Pos, Size);
+        public Rectangle Rect
+        {
+            get
+            {
+                return new Rectangle(Pos, Size);
+            }
+        }
+
+        public bool Collision(ICollision other)
+        {
+            //если объект имеет пересечение с текущим объектом то true
+            if (other.Rect.IntersectsWith(this.Rect)) return true; else return false;
+        }
+
         #endregion
     }
 }

@@ -10,15 +10,27 @@ namespace Geologist.Objects
     class Hero : BaseObject
     {
         #region Fields
-        int _width = 100;
-        int _height = 80;
+        static int _width = 100;
+        static int _height = 80;
+
+        public int Width 
+        {
+            get { return _width; }
+            private set { _width = value; }
+        }
+        
+        public int Height 
+        {
+            get { return _height; }
+            private set { _height = value; }
+        }
         static Image Image { get; } = Image.FromFile("Images\\geologist.png");
         int _speed = 10;
         #endregion
 
 
         #region ClassLifeCycles
-        public Hero(Point pos, Point dir, Size size) : base(pos, dir, size)
+        public Hero(Point pos) : base(pos, new Point(0, 0), new Size(_width, _height))
         {
 
         }
@@ -103,11 +115,6 @@ namespace Geologist.Objects
                 if (up) Dir.Y = -_speed;
                 else if (down) Dir.Y = _speed;
                 //else Dir.Y = 0;
-            }
-            else
-            {
-                Dir.X = 0;
-                Dir.Y = 0;
             }
 
 

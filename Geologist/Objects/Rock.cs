@@ -13,11 +13,12 @@ namespace Geologist.Objects
         /// <summary>
         /// высота картинки
         /// </summary>
-        static int _height = 50;
+        int _height = 50;
         /// <summary>
         /// ширина картинки
         /// </summary>
-        static int _width = (int)(_height * 1.4);
+        int _width = 70;
+        public int Power { get; private set; }
         //public int Height { get; private set; } = 50;
         //public int Width { get; private set; } = 70;
 
@@ -28,7 +29,7 @@ namespace Geologist.Objects
         #region ClassLifeCycles
         public Rock(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
-
+            Power = -1;
         }
 
         public Rock()
@@ -36,6 +37,7 @@ namespace Geologist.Objects
             Pos = new Point(Game.Random.Next(Game.Width, Game.Width * 2), Game.Random.Next(0, Game.Height - _height));
             Dir = new Point(Game.Random.Next(1, 10), Game.Random.Next(-10, 10));
             Size = new Size(_width, _height);
+            Power = -1;
         }
         #endregion
 
