@@ -53,6 +53,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\EmployeBase.cs" />
+    <Compile Include="Objects\EmployeFixed.cs" />
+    <Compile Include="Objects\EmployeHourly.cs" />
+    <Compile Include="Objects\IComparer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

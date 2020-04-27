@@ -9,7 +9,7 @@ namespace Geologist
     /// <summary>
     /// Класс с логикой игры
     /// </summary>
-    static class Game
+    class Game : Exception
     {
         #region Fields
         static public Image background = Image.FromFile("Images\\mine.jpg");
@@ -30,9 +30,13 @@ namespace Geologist
 
 
         #region ClassLifeCycles
-        static Game()
+        public Game()
         {
 
+        }
+
+        public Game(string message) : base(message)
+        {
         }
         #endregion
 
@@ -50,7 +54,6 @@ namespace Geologist
 
 
         #region Methods
-
         static public void Init(Form form)
         {
             // Графическое устройство для вывода графики
