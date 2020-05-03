@@ -6,21 +6,18 @@ namespace Employe.Objects
     {
         // a.Описать в базовом классе абстрактный метод для расчета среднемесячной заработной платы.
         // для работников  с фиксированной  оплатой: «среднемесячная заработная плата = фиксированная месячная оплата»;
-        private Random Random;// { get; } = new Random();
-
-        public EmployeFixed()
+        public EmployeFixed(string _firstName, string _lastName) : base(_firstName, _lastName)
         {
-            SalaryMonthly = 80000;
         }
         
-        public EmployeFixed(int min, int max)
+        //public EmployeFixed(int min, int max)
+        //{
+        //    int rnd = Random.Next(min, max);
+        //    salaryMonthly = (rnd - rnd % 1000m) * 1000m;
+        //}
+        public override void GetSalary(double fixedSalary)
         {
-            int rnd = Random.Next(min, max);
-            SalaryMonthly = (rnd - rnd % 1000m) * 1000m;
-        }
-        public override decimal GetSalary()
-        {
-            return SalaryMonthly;
+            this.Salary = Convert.ToDecimal(fixedSalary);
         }
     }
 }

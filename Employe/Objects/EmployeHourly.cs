@@ -4,16 +4,16 @@ namespace Employe.Objects
 {
     class EmployeHourly : EmployeBase
     {
-
         // a.Описать в базовом классе абстрактный метод для расчета среднемесячной заработной платы.
         // Для «повременщиков» формула для расчета такова: «среднемесячная заработная плата = 20.8 * 8 * почасовая ставка»; 
-        private Random Random { get; } = new Random();
-        decimal hourlyRate;
 
-        public override decimal GetSalary()
+        public EmployeHourly(string _firstName, string _lastName) : base(_firstName, _lastName)
         {
-            hourlyRate = Random.Next(150, 5000);
-            return SalaryMonthly = 20.8M * 8M * hourlyRate;
+        }
+
+        public override void GetSalary(double hourlyRate)
+        {
+            this.Salary = Convert.ToDecimal(20.8 * 8 * hourlyRate);
         }
     }
 }
