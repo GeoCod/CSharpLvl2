@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace Employe
 {
-    public partial class fmMain : Form
+    public partial class fmStart : Form
     {
-        public fmMain()
+        public fmStart()
         {
             InitializeComponent();
         }
@@ -16,7 +16,7 @@ namespace Employe
             tbx1.Text = null;
 
             int countOfWorkers = 20;
-            tbx1.Text = "Список сотрудников:\n";
+            tbx1.Text = "Список сотрудников:\r\n";
 
             ArrayWorker arr = new ArrayWorker();    //почему-то не инициализиреут массив 
             arr.Init(countOfWorkers);
@@ -28,6 +28,8 @@ namespace Employe
             {
                 tbx1.Text += arr.Print();
             }
+
+            //tbx1.Text += "Еще одна строка\r\n";
         }
 
         private Random Random { get; } = new Random();

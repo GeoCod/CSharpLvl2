@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="fmStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmStart.Designer.cs">
+      <DependentUpon>fmStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="Objects\BaseObject.cs" />
     <Compile Include="Objects\Crystal.cs" />
@@ -83,6 +89,11 @@
     <Content Include="Images\rock.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="fmStart.resx">
+      <DependentUpon>fmStart.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

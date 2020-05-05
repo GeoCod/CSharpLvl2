@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="fmStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="fmStart.Designer.cs">
+      <DependentUpon>fmStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Objects\ArrayWorker.cs" />
     <Compile Include="Objects\EmployeBase.cs" />
@@ -58,8 +58,8 @@
     <Compile Include="Objects\EmployeHourly.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="fmStart.resx">
+      <DependentUpon>fmStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

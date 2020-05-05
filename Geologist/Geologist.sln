@@ -7,20 +7,39 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Geologist", "Geologist.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employe", "..\Employe\Employe.csproj", "{288B1D59-F259-4879-8D60-3DF08A2A9A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeologistMonoGame", "..\GeologistMonoGame\GeologistMonoGame.csproj", "{CEDD14CB-0F54-4B42-B47E-9288A7413679}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{715B2183-22AB-43B6-9428-7B8D289CD915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{715B2183-22AB-43B6-9428-7B8D289CD915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{715B2183-22AB-43B6-9428-7B8D289CD915}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{715B2183-22AB-43B6-9428-7B8D289CD915}.Debug|x86.Build.0 = Debug|Any CPU
 		{715B2183-22AB-43B6-9428-7B8D289CD915}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{715B2183-22AB-43B6-9428-7B8D289CD915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{715B2183-22AB-43B6-9428-7B8D289CD915}.Release|x86.ActiveCfg = Release|Any CPU
+		{715B2183-22AB-43B6-9428-7B8D289CD915}.Release|x86.Build.0 = Release|Any CPU
 		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Debug|x86.Build.0 = Debug|Any CPU
 		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Release|x86.ActiveCfg = Release|Any CPU
+		{288B1D59-F259-4879-8D60-3DF08A2A9A8E}.Release|x86.Build.0 = Release|Any CPU
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Debug|Any CPU.Build.0 = Debug|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Debug|x86.ActiveCfg = Debug|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Debug|x86.Build.0 = Debug|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|Any CPU.ActiveCfg = Release|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|x86.ActiveCfg = Release|x86
+		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

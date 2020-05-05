@@ -1,6 +1,6 @@
 ﻿namespace Employe
 {
-    partial class fmMain
+    partial class fmStart
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -47,18 +47,18 @@
             this.tbx1.Location = new System.Drawing.Point(12, 12);
             this.tbx1.Multiline = true;
             this.tbx1.Name = "tbx1";
-            this.tbx1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbx1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbx1.Size = new System.Drawing.Size(416, 385);
             this.tbx1.TabIndex = 2;
             // 
-            // fmMain
+            // fmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 450);
             this.Controls.Add(this.tbx1);
             this.Controls.Add(this.btnStart);
-            this.Name = "fmMain";
+            this.Name = "fmStart";
             this.Text = "Работники";
             this.ResumeLayout(false);
             this.PerformLayout();
