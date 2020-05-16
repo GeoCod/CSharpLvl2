@@ -60,6 +60,12 @@
     <StartupObject>GeologistMonoGame.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Code\BaseObject.cs" />
+    <Compile Include="Code\Crystal.cs" />
+    <Compile Include="Code\Hammer.cs" />
+    <Compile Include="Code\Hero.cs" />
+    <Compile Include="Code\ICollision.cs" />
+    <Compile Include="Code\Rock.cs" />
     <Compile Include="Code\SplashScreen.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />

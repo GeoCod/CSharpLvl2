@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employe", "..\Employe\Emplo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeologistMonoGame", "..\GeologistMonoGame\GeologistMonoGame.csproj", "{CEDD14CB-0F54-4B42-B47E-9288A7413679}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_DataBase", "..\WPF_DataBase\WPF_DataBase.csproj", "{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,14 @@ Global
 		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|Any CPU.ActiveCfg = Release|x86
 		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|x86.ActiveCfg = Release|x86
 		{CEDD14CB-0F54-4B42-B47E-9288A7413679}.Release|x86.Build.0 = Release|x86
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Debug|x86.Build.0 = Debug|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Release|x86.ActiveCfg = Release|Any CPU
+		{7168DBF1-1EFE-4D42-BB54-A44D891A9F42}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

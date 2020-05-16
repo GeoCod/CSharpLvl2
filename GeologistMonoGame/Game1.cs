@@ -1,6 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace GeologistMonoGame
 {
@@ -91,19 +94,28 @@ namespace GeologistMonoGame
         protected override void Update(GameTime gameTime)
         {
             // TODO: Добавьте свою логику обновления здесь
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit();
+            List<int> values = new List<int>() { 1, 3 };
+            foreach (int val in values)
+            {
+                Console.WriteLine(val);
+            }
+            KeyboardState keyboardState = Keyboard.GetState();
             switch (Stat)
             {
                 case Stat.SplashScreen:
                     SplashScreen.Update();
-                    if (Keyboard.GetState().IsKeyDown(Keys.Space)) Stat = Stat.Game;
+                    if (keyboardState.IsKeyDown(Keys.Space)) Stat = Stat.Game;
                     break;
                 case Stat.Game:
-                    if (Keyboard.GetState().IsKeyDown(Keys.Escape)) Stat = Stat.SplashScreen;
+                    if (keyboardState.IsKeyDown(Keys.Escape)) Stat = Stat.SplashScreen;
+                    if (keyboardState.IsKeyDown(Keys.Up)) ;
+                    if (keyboardState.IsKeyDown(Keys.Down)) ;
+                    if (keyboardState.IsKeyDown(Keys.Left)) ;
+                    if (keyboardState.IsKeyDown(Keys.Right)) ;
                     break;
             }
 
-            //SplashScreen.Update();
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || keyboardState.IsKeyDown(Keys.Escape)) Exit();
 
             base.Update(gameTime);
         }
@@ -129,9 +141,7 @@ namespace GeologistMonoGame
 
             SplashScreen.Draw(spriteBatch);
 
-
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }
