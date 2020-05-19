@@ -6,8 +6,26 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WPF_DataBase"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Работнички" Height="466" Width="701" Loaded="Window_Loaded" MinWidth="450" MinHeight="200">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" >
+            <Button MinWidth="40" Width="Auto" Margin="0,2,4,2" Content="Работники" IsEnabled="False"/>
+            <Button MinWidth="40" Width="Auto" Margin="0,2,4,2" Content="Департаменты" Click="Button_Click"/>
+            <Button MinWidth="40" Width="Auto" Margin="0,2,4,2" Content="Сохранить" IsEnabled="False"/>
+            <Button MinWidth="40" Width="Auto" Margin="0,2,4,2" Content="Загрузить" IsEnabled="False"/>
+        </StackPanel>
+        <DataGrid x:Name="dgDate" AutoGenerateColumns="False" Grid.Row="1" FontSize="12">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" MinWidth="30"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" MinWidth="80"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" MinWidth="100"/>
+                <DataGridComboBoxColumn Header="Департамент" SelectedValueBinding="{Binding Path=Department}" x:Name="cbDepartment" Width="*" MinWidth="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

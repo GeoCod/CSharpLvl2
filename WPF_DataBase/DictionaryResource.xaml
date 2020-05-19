@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WPF_DataBase">
+
+</ResourceDictionary>
+
+    <!--
+    Лучше сделать DataTemplate настроенный на свой тип сущностей.
+    А внутри него нарисовать DataGrid с нужным набором колонок. 
+    DataTemplate определить в словаре ресурсов. А сами сущности загружать в ContentControl. 
+    ContentControl сам определит какой DataTemplate надо выбрать для визуализации своего содержимого.
+    -->
