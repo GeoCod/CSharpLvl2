@@ -24,7 +24,8 @@
                 <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}" MinWidth="30"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Path=FirstName}" MinWidth="80"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" MinWidth="100"/>
-                <DataGridComboBoxColumn Header="Департамент" SelectedValueBinding="{Binding Path=Department}" x:Name="cbDepartment" Width="*" MinWidth="150"/>
+                <!--<DataGridComboBoxColumn Header="Департамент" SelectedValueBinding="{Binding Path=Department}" x:Name="cbDepartment" Width="*" MinWidth="150"/>-->
+                <DataGridComboBoxColumn Header="Департамент" ItemsSource =""  x:Name="cbDepartment" Width="*" MinWidth="150"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
